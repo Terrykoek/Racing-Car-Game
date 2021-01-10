@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background-image: url("https://steamcdn-a.akamaihd.net/steamcommunity/public/images/items/44350/deafa6e8db92914952b6a1be6e40737ee3cb2b16.jpg");
+    background-image: url("https://picsum.photos/id/352/1903/1212");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -8,6 +8,7 @@ p{
     text-align: center;
     
 }
+
 /* css for the road */
 #container{
     position: relative;
@@ -36,6 +37,11 @@ p{
     padding: 10px;
     
 }
+
+#joke, #punchline{
+    color:white;
+}
+
 /* css for the class of lines for the total lines */
 
 .lines{

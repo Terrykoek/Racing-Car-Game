@@ -1,5 +1,15 @@
 $(() => {
 
+    // const url="https://picsum.photos/id/352/1000/1000"
+
+    // const promise = $.ajax({
+    //     url: url
+    // });
+
+    // promise.then(data => {
+
+    // })
+
     let startGame;
 
 
@@ -15,6 +25,8 @@ $(() => {
     let restartbtn = $('#restart');
     let restartdiv = $('#restartdiv');
     let score = $('#score');
+    let jokes;
+    let punchLine;
 
 
     //some other declarations
@@ -135,7 +147,7 @@ $(() => {
         if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) {
             return false;
         }
-       
+
         return true;
     }
 
@@ -148,13 +160,13 @@ $(() => {
         }
 
         scoreCount++;
-        
+
         if (scoreCount % 10 == 0) {
             score.text(parseInt(score.text()) + 1);
         }
 
         if (scoreCount % 500 == 0) {
-            carSpeed+=2;
+            carSpeed += 2;
             lineSpeed++;
         }
         //defining car down function with parameters of car 1,2 and 3
@@ -203,9 +215,31 @@ $(() => {
         cancelAnimationFrame(moveDown);
         restartdiv.slideDown();
         restartbtn.focus();
+        //input jokes
+        fetchRandomJoke();
 
     }
-
+    // input jokes
+    fetchRandomJoke = () => {
+        fetch('https://official-joke-api.appspot.com/random_joke', {
+            headers: {
+                Accept: 'application/json'
+            }
+        }).then((response) => {
+            // successful API
+            return response.text();
+        }).then((data) => {
+            let parseData = JSON.parse(data);
+            console.log(parseData.setup)
+            jokes = parseData.setup;
+            punchLine = parseData.punchline;
+            $('#joke').text(jokes);
+            $('#punchline').text(punchLine);
+        }).catch((err) => {
+            // error
+            console.warn('Something went wrong.', err);
+        });
+    }
 
 
 });
