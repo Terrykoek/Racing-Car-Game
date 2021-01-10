@@ -69,7 +69,7 @@ p{
 #car{
     bottom: 8%;
     left: 60%;
-    background-color: #ffdf5a;
+    background-color:red;
 }
 
 /* css for the glass*/
@@ -138,17 +138,17 @@ p{
 #car1{
     top: -100px;
     left: 60%;
-    background-color: #26c5ff;
+    background-color: white;
 }
 #car2{
     top: -200px;
     left: 40%;
-    background-color: #26c5ff;
+    background-color:  white;
 }
 #car3{
     top: -350px;
     left: 50%;
-    background-color: #26c5ff;
+    background-color: white;
 }
 
 /* css for the restart button*/
