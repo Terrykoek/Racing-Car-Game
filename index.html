@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Race Car Game</title>
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+    <link href="style.css" rel="stylesheet" /> 
+
+</head>
+
+<body>
+        <!--- creating div for the rules portion -->
+    <div id="rules">
+        <p>Controls: Right, Left, Up & Down arrow keys.</p>
+    </div>
+        <!--- creating div for the score board, assigned an id of socre to the value to be used in JS for increment -->
+
+    <div id="scoreDiv">
+        Score: <span id="score">0</span>
+    </div>
+    <!--- creating div for the lines, giving class to all 3 lines and ids to each of the lines -->
+    <div id="container">
+        <div id="firstLine" class="lines"></div>
+        <div id="secondLine" class="lines"></div>
+        <div id="thirdLine" class="lines"></div>
+
+    <!--- creating div and ID for the cars and its tyre parts-->
+    <!--- div for player car-->
+
+        <div id="car" class="car">
+            <div class="f_glass"></div>
+            <div class="b_glass"></div>
+            
+        </div>
+
+    <!--- div for opposite car-->
+
+        <div id="car1" class="car">
+            <div class="f_glass"></div>
+            <div class="b_glass"></div>
+          
+        </div>
+        <div id="car2" class="car">
+            <div class="f_glass"></div>
+            <div class="b_glass"></div>
+           
+          
+        </div>
+        <div id="car3" class="car">
+            <div class="f_glass"></div>
+            <div class="b_glass"></div>
+           
+            
+        </div>
+
+            <!--- creating div and ID for the restart button-->
+
+        <div id="restartdiv">
+            <button id="restart">
+                Restart<br>
+                <small class="Enter">click here</small>
+            </button>
+        </div>
+    </div>
+  
+    <script src="script.js"></script>
+</body>
+
+</html>
