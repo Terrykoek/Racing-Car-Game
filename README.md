@@ -29,14 +29,14 @@ The game is avaialble to try on https://terrykoek.github.io/racing-car-game/
 The user will see the game page immediately as per below. Instructions were stated at the top to guide the users on how to play the game.
 
 <table><tr><td>
- <img src="wireframe1.png" width="500px"/>
+ <img src="https://github.com/Terrykoek/racing-car-game/blob/main/wireframe1.png" width="500px"/>
 </td></tr></table>
 
 
 Once the user lost the game, a 'Play Again' button immediately will pop up to allow the user to restart the game.
 
 <table><tr><td>
- <img src="wireframe2.png" width="500px"/>
+ <img src="https://github.com/Terrykoek/racing-car-game/blob/main/wireframe2.png" width="500px"/>
 </td></tr></table>
 
 A random joke will appear after the user has lost to entice the user to restart the game for more random jokes.
