@@ -16,7 +16,7 @@ The game is avaialble to try on https://terrykoek.github.io/racing-car-game/
 * AJAX is used to request and access data
 
 ## Difficulties Faced
-* Alot of time were spent on coding the collision function. I had the concept in my head but alot of trial and error is needed
+* Alot of time were spent on coding the collision function. I had the concept in my head but alot of trial and error is required.
 
 ## Game Instructions
 * Press directional keys on keyboard to control the red car to prevent it from colliding with the opposite white cars.
@@ -33,14 +33,13 @@ The user will see the game page immediately as per below. Instructions were stat
 </td></tr></table>
 
 
-Once the user lost the game, a 'Play Again' button immediately will pop up to allow the user to restart the game.
+Once the user lost the game, a 'Play Again' button immediately will pop up to allow the user to click and restart the game.
+A random joke will appear after the user has lost the game to entice the user to restart the game for more random jokes.
+
 
 <table><tr><td>
  <img src="https://github.com/Terrykoek/racing-car-game/blob/main/wireframe2.PNG" width="600px"/>
 </td></tr></table>
-
-A random joke will appear after the user has lost to entice the user to restart the game for more random jokes.
-
 
 
 ## Future improvements
