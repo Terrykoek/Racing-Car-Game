@@ -215,7 +215,6 @@ $(() => {
     startGame = requestAnimationFrame(repeat);
 }
 
-
     //restart button is clicked, reload the page and activate gameStop function to cancel animation
     restartbtn.click(function () {
         location.reload(); //refresh or reload the page when restart button is pressed
@@ -224,16 +223,12 @@ $(() => {
     function gameStop() {
         endGame = true;
         cancelAnimationFrame(startGame);
-        cancelAnimationFrame(moveUp);
-        cancelAnimationFrame(moveDown);
-        cancelAnimationFrame(moveRight);
-        cancelAnimationFrame(moveLeft);
-        //reveal restart button
         restartdiv.show();
         //input jokes API
         fetchRandomJoke();
 
     }
+    
     // input joke API
     
     fetchRandomJoke = () => {
