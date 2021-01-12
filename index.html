@@ -4,77 +4,78 @@
 <head>
     <meta charset="UTF-8">
     <title>Race Car Game</title>
-    <script
-    src="https://code.jquery.com/jquery-3.4.1.min.js"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-    crossorigin="anonymous"></script>
-    <link href="style.css" rel="stylesheet" /> 
+    <link href="style.css" rel="stylesheet" />
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <script src="script.js"></script>
 
 </head>
 
 <body>
+    <iframe width="0" height="0" src="https://www.youtube.com/embed/RZG02MIb1VE&autoplay=1" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
 
-    <iframe width="0" height="0" src="https://www.youtube.com/embed/RZG02MIb1VE&autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-        <!--- creating div for the rules portion -->
+    <!--- creating div for the rules portion -->
     <div id="rules">
-        <p>Controls: Right, Left, Up & Down arrow keys.</p>
+        <p>Press directional keys to control your car. Look out for a joke at the end!</p>
     </div>
-        <!--- creating div for the score board, assigned an id of socre to the value to be used in JS for increment -->
+    <!--- creating div for the score board, assigned an id of socre to the value to be used in JS for increment -->
 
     <div id="scoreDiv">
         Score: <span id="score">0</span>
     </div>
-        <!--- creating div for the jokes and punchline -->
+    <!--- creating div for the jokes and punchline -->
 
     <p id="joke"></p>
     <p id="punchline"></p>
 
+    
     <!--- creating div for the lines, giving class to all 3 lines and ids to each of the lines -->
     <div id="container">
         <div id="firstLine" class="lines"></div>
         <div id="secondLine" class="lines"></div>
         <div id="thirdLine" class="lines"></div>
 
-    <!--- creating div and ID for the cars and its tyre parts-->
-    <!--- div for player car-->
+        <!--- creating div and ID for the cars and its tyre parts-->
+        <!--- div for player car-->
 
         <div id="car" class="car">
-            <div class="f_glass"></div>
-            <div class="b_glass"></div>
-            
+            <div class="carWindow"></div>
+            <div class="carWindow2"></div>
+
         </div>
 
-    <!--- div for opposite car-->
+        <!--- div for opposite car-->
 
         <div id="car1" class="car">
-            <div class="f_glass"></div>
-            <div class="b_glass"></div>
-          
+            <div class="carWindow"></div>
+            <div class="carWindow2"></div>
+
         </div>
         <div id="car2" class="car">
-            <div class="f_glass"></div>
-            <div class="b_glass"></div>
-           
-          
+            <div class="carWindow"></div>
+            <div class="carWindow2"></div>
+
         </div>
         <div id="car3" class="car">
-            <div class="f_glass"></div>
-            <div class="b_glass"></div>
-           
-            
+            <div class="carWindow"></div>
+            <div class="carWindow2"></div>
+
         </div>
 
-            <!--- creating div and ID for the restart button-->
+        <!--- creating div and ID for the restart button-->
 
         <div id="restartdiv">
             <button id="restart">
-                Restart<br>
-                <small class="Enter">click here</small>
+                PLAY AGAIN<br>
+                <small class="here">CLICK HERE</small>
             </button>
         </div>
     </div>
-  
+
     <script src="script.js"></script>
 </body>
 

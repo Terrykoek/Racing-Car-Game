@@ -1,51 +1,51 @@
 $(() => {
-
-    // const url="https://picsum.photos/id/352/1000/1000"
-
-    // const promise = $.ajax({
-    //     url: url
-    // });
-
-    // promise.then(data => {
-
-    // })
-
+    //start game function
     let startGame;
+    let endGame = false;
 
+    //creating variable for scores
+    let score = $('#score');
+    let scoreCount = 1;
 
-    //saving dom objects to variables
-    let container = $('#container');
+    
+    //creating variables for buttons
+    let restartbtn = $('#restart');
+    let restartdiv = $('#restartdiv');
+
+     //variable for joke and punchline function
+     let jokes;
+     let punchLine;
+ 
+    
+    //creating basic function for lines
+    let line1 = $('#firstLine');
+    let line2 = $('#secondLine');
+    let line3 = $('#thirdLine');
+    
+
+    //creating basic function for cars 
     let car = $('#car');
     let car1 = $('#car1');
     let car2 = $('#car2');
     let car3 = $('#car3');
-    let line1 = $('#firstLine');
-    let line2 = $('#secondLine');
-    let line3 = $('#thirdLine');
-    let restartbtn = $('#restart');
-    let restartdiv = $('#restartdiv');
-    let score = $('#score');
-    let jokes;
-    let punchLine;
 
 
-    //some other declarations
-    let endGame = false;
+    //variables to guide the game
+    let container = $('#container');
 
-    let scoreCount = 1;
-
-    let carSpeed = 1;
+    let carSpeed = 2;
     let lineSpeed = 4;
 
-    let moveRight = false;
-    let moveLeft = false;
     let moveUp = false;
     let moveDown = false;
+    let moveRight = false;
+    let moveLeft = false;
+ 
 
 
     //saving some initial setup
     //The parseInt() function parses a string and returns an integer. In this case, it returns the value of the walls of the road into an integer
-    let containerLeft = parseInt(container.css('left'));
+    // let containerLeft = parseInt(container.css('left'));
     let containerWidth = parseInt(container.width());
     let containerHeight = parseInt(container.height());
     //returns the value of the width and height of the car
@@ -54,15 +54,15 @@ $(() => {
 
 
 
-    /* Move the cars */
-    //move cars down
+    //move player car
     //requestAnimation to call function left over a period of time
     //keydown is the action of pressing button down
     $(document).on('keydown', function (e) {    //keycode for keydown=40
-        //The window.requestAnimationFrame() method tells the browser that you wish to perform an animation and requests that the browser calls a specified function to update an animation before the next repaint. The method takes a callback as an argument to be invoked before the repaint.
+        //The window.requestAnimationFrame() method tells the browser that you wish to perform an animation and requests that the browser calls a specified function to update an animation before the next repaint. 
+        //The method takes a callback as an argument to be invoked before the repaint.
         if (endGame === false) {
             let key = e.keyCode;
-            if (key === 37) {
+            if (key === 37) { //keycode for left key is 37
                 moveLeft = requestAnimationFrame(left);
             } else if (key === 39) {
                 moveRight = requestAnimationFrame(right);
@@ -74,13 +74,13 @@ $(() => {
         }
     });
 
-    //keycode for up key=38
+   
     //keyup is the action of releasing of button on keyboard
 
     $(document).on('keyup', function (e) {
         if (endGame === false) {
             let key = e.keyCode;
-            //requestAnimationFrame returns an ID you can use to cancel it,
+            // cancels an animation frame request previously scheduled through a call            
             if (key === 37) {
                 cancelAnimationFrame(moveLeft);
                 moveLeft = false;
@@ -96,110 +96,125 @@ $(() => {
             }
         }
     });
+
     // define function of left, right, up and down
-    function left() {
-        if (endGame === false && parseInt(car.css('left')) > 0) {
-            car.css('left', parseInt(car.css('left')) - 5); // left letiable of class car will move 5 to the lft
-            moveLeft = requestAnimationFrame(left); //request animation frame left will be activated
-        }
-    }
-
-    function right() {
-        if (endGame === false && parseInt(car.css('left')) < containerWidth - carWidth) {
-            car.css('left', parseInt(car.css('left')) + 5);
-            moveRight = requestAnimationFrame(right);
-        }
-    }
-
     function up() {
         if (endGame === false && parseInt(car.css('top')) > 0) {
-            car.css('top', parseInt(car.css('top')) - 3); //top letiable of class car will move 3 units upward
+            car.css('top', parseInt(car.css('top')) - 2); //top parameter of class car will move 3 units upward
             moveUp = requestAnimationFrame(up);
         }
     }
 
     function down() {
         if (endGame === false && parseInt(car.css('top')) < containerHeight - carHeight) {
-            car.css('top', parseInt(car.css('top')) + 3);
+            car.css('top', parseInt(car.css('top')) + 2);
             moveDown = requestAnimationFrame(down);
         }
     }
+    function left() {
+        if (endGame === false && parseInt(car.css('left')) > 0) { //if endGame is false(as defined earlier) and the value of left which is a css property of car element is >0
+            car.css('left', parseInt(car.css('left')) - 4); // left parameter of car element will move 5 to the left 
+            moveLeft = requestAnimationFrame(left); //request animation frame left will be assigned to moveLeft
+        }
+    }
 
-    /* Move the opposite cars and lines */
+    function right() {
+        if (endGame === false && parseInt(car.css('left')) < containerWidth - carWidth) {
+            car.css('left', parseInt(car.css('left')) + 4);
+            moveRight = requestAnimationFrame(right);
+        }
+    }
+
+
+    //assign startGame function to repeat this animation
     startGame = requestAnimationFrame(repeat);
 
+    
+    //creating the movement of opposite car
+    function carDown(car) {
+        let currentTopCar = parseInt(car.css('top')); //returns the value of the top of the opposite car with respect to the top currently
+        if (currentTopCar > containerHeight) { // the distance of the top of the car is larger than the distance of the container height
+            currentTopCar = -10; // which cause te car to come down
+            let carLeft = parseInt(Math.random() * (containerWidth - carWidth)); //give carleft a value of math random so the cars always come down randomly
+            car.css('left', carLeft);
+        }
+        car.css('top', currentTopCar + carSpeed); //css value of car will be the currentopcar + car speed
+    }
+
+    //creating movement of the lines
+    function lineDown(line) {
+        let currentTopLine = parseInt(line.css('top'));
+        if (currentTopLine > containerHeight) {
+            currentTopLine = -100;
+        }
+        line.css('top', currentTopLine + lineSpeed);
+    }
 
     //collision function
+    //2 parameters of player car and the opposite car will run in this function
     function collision($div1, $div2) {
-        let x1 = $div1.offset().left; //retrieve a position of an element containing the properties top and left
-        let y1 = $div1.offset().top; //get the top position of the div1
-        let h1 = $div1.outerHeight(true); //Get the current computed outer height (including padding, border, and optionally margin) for the first element in the set of matched elements or set the outer height of every matched element.
-        let w1 = $div1.outerWidth(true); //Get the outerwidth of the div
-        let b1 = y1 + h1;
-        let r1 = x1 + w1;
-        let x2 = $div2.offset().left;
-        let y2 = $div2.offset().top;
-        let h2 = $div2.outerHeight(true);
-        let w2 = $div2.outerWidth(true);
-        let b2 = y2 + h2;
-        let r2 = x2 + w2;
-        //if displacement of player car(b1) < displacement of opp car (y2), means the opp car is above player car, hence it is false
-        if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) {
-            return false;
-        }
+     //retrieve a position of an element containing the properties of top respect to the bottom of container
+    let y1 = $div1.offset().top; 
+     //Get the current computed outer height (including padding, border, and optionally margin) 
+    let h1 = $div1.outerHeight(true); 
+    //to get the complete distance of the top of the player car with respect to the bottom of the container
+     let b1 = y1 + h1;
 
-        return true;
+    //do the same for left with respect to the left of the container
+    let x1 = $div1.offset().left; 
+    let w1 = $div1.outerWidth(true); //Get the outerwidth of the div including padding and margin
+    //to get the complete distance of the left of the player car with respect to the left of the container
+    let r1 = x1 + w1;
+
+    //same thing for 2nd parameter
+    let y2 = $div2.offset().top;
+    let h2 = $div2.outerHeight(true);
+    let x2 = $div2.offset().left;
+    let w2 = $div2.outerWidth(true);
+    let b2 = y2 + h2;
+    let r2 = x2 + w2;
+
+    //if displacement of player car(b1) < displacement of opp car (y2) relative to bottom of container, this means the opp car is always above player car, this will return false which means no collision. same thing for the left and right and bottom
+    if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) {
+        return false;
     }
+
+    return true;
+}
 
 
     //define repeat function
     function repeat() {
-        if (collision(car, car1) || collision(car, car2) || collision(car, car3)) { //if main car collide with car 1, 2 or 3, gamestop funciton will kick in which will stop the game
-            gameStop();
-            return;
-        }
-
-        scoreCount++;
-
-        if (scoreCount % 10 == 0) {
-            score.text(parseInt(score.text()) + 1);
-        }
-
-        if (scoreCount % 500 == 0) {
-            carSpeed += 2;
-            lineSpeed++;
-        }
-        //defining car down function with parameters of car 1,2 and 3
-        carDown(car1);
-        carDown(car2);
-        carDown(car3);
-
-        //defining line down function with parameters of line 1,2 and 3
-
-        lineDown(line1);
-        lineDown(line2);
-        lineDown(line3);
-
-        startGame = requestAnimationFrame(repeat);
-    }
-    //creating the movement of car
-    function carDown(car) {
-        let currentTopCar = parseInt(car.css('top')); //returns the value of the top of the car
-        if (currentTopCar > containerHeight) {
-            currentTopCar = -200;
-            let carLeft = parseInt(Math.random() * (containerWidth - carWidth));
-            car.css('left', carLeft);
-        }
-        car.css('top', currentTopCar + carSpeed);
+    if (collision(car, car1) || collision(car, car2) || collision(car, car3)) { //if main car collide with car 1, 2 or 3, gamestop funciton will kick in which will stop the game
+        gameStop();
+        return;
     }
 
-    function lineDown(line) {
-        let currentTopLine = parseInt(line.css('top'));
-        if (currentTopLine > containerHeight) {
-            currentTopLine = -300;
-        }
-        line.css('top', currentTopLine + lineSpeed);
+    scoreCount++;
+
+    if (scoreCount % 30 == 0) {
+        score.text(parseInt(score.text()) + 1);
     }
+
+    if (scoreCount % 400 == 0) { //increase speed of opposite car
+        carSpeed++;
+        lineSpeed++;
+    }
+
+    //defining car down function with parameters of car 1,2 and 3
+    carDown(car1);
+    carDown(car2);
+    carDown(car3);
+
+    //defining line down function with parameters of line 1,2 and 3
+
+    lineDown(line1);
+    lineDown(line2);
+    lineDown(line3);
+
+    startGame = requestAnimationFrame(repeat);
+}
+
 
     //restart button is clicked, reload the page and activate gameStop function to cancel animation
     restartbtn.click(function () {
@@ -209,19 +224,20 @@ $(() => {
     function gameStop() {
         endGame = true;
         cancelAnimationFrame(startGame);
-        cancelAnimationFrame(moveRight);
-        cancelAnimationFrame(moveLeft);
         cancelAnimationFrame(moveUp);
         cancelAnimationFrame(moveDown);
-        restartdiv.slideDown();
-        restartbtn.focus();
-        //input jokes
+        cancelAnimationFrame(moveRight);
+        cancelAnimationFrame(moveLeft);
+        //reveal restart button
+        restartdiv.show();
+        //input jokes API
         fetchRandomJoke();
 
     }
-    // input jokes
+    // input joke API
+    
     fetchRandomJoke = () => {
-        fetch('https://official-joke-api.appspot.com/random_joke', {
+        fetch('https://official-joke-api.appspot.com/random_joke', {// fetch from the API
             headers: {
                 Accept: 'application/json'
             }
@@ -229,7 +245,7 @@ $(() => {
             // successful API
             return response.text();
         }).then((data) => {
-            let parseData = JSON.parse(data);
+            let parseData = JSON.parse(data); //parse the date to assign to jokes variable 
             console.log(parseData.setup)
             jokes = parseData.setup;
             punchLine = parseData.punchline;
