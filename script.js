@@ -223,10 +223,10 @@ $(() => {
     function gameStop() {
         endGame = true;
         cancelAnimationFrame(startGame);
-          // cancelAnimationFrame(moveUp);
-        // cancelAnimationFrame(moveDown);
-        // cancelAnimationFrame(moveRight);
-        // cancelAnimationFrame(moveLeft);
+        cancelAnimationFrame(moveUp);
+        cancelAnimationFrame(moveDown);
+        cancelAnimationFrame(moveRight);
+        cancelAnimationFrame(moveLeft);
         //reveal restart button
         restartdiv.show();
         //input jokes API
