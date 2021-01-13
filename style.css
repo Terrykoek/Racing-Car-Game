@@ -14,10 +14,10 @@ p{
     outline-color:white;
     outline-style: dotted;
     position: relative;
-    height: 80vh;
+    height: 70vh;
     width: 15%;
     margin: 0 auto;
-    margin-top: 20px;
+    margin-top: 30px;
     background-color: #292929;
     overflow: hidden;
 }

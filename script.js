@@ -196,7 +196,7 @@ $(() => {
         score.text(parseInt(score.text()) + 1);
     }
 
-    if (scoreCount % 400 == 0) { //increase speed of opposite car
+    if (scoreCount % 300 == 0) { //increase speed of opposite car
         carSpeed++;
         lineSpeed++;
     }
