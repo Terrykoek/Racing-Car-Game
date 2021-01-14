@@ -6,7 +6,7 @@ This is a simple yet engaging 2D car racing game which is suitable for all ages.
 
 ## Demo link
 
-The game is avaialble to try on https://terrykoek.github.io/racing-car-game/
+The game is avaialble to try on https://terrykoek.github.io/Racing-Car-Game/
 
 ## Technologies Used
 * HTML

@@ -245,16 +245,12 @@ $(() => {
             // successful API
             return response.text();
         }).then((data) => {
-            let parseData = JSON.parse(data); //parse the date to assign to jokes variable 
-            console.log(parseData.setup)
+            let parseData = JSON.parse(data); //parse the data to assign to jokes variable 
             jokes = parseData.setup;
             punchLine = parseData.punchline;
             $('#joke').text(jokes);
             $('#punchline').text(punchLine);
-        }).catch((err) => {
-            // error
-            console.warn('Something went wrong.', err);
-        });
+        })
     }
 
 
