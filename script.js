@@ -152,30 +152,30 @@ $(() => {
 
     //collision function
     //2 parameters of player car and the opposite car will run in this function
-    function collision($div1, $div2) {
+    function collision($para1, $para2) {
      //retrieve a position of an element containing the properties of top respect to the bottom of container
-    let y1 = $div1.offset().top; 
+    let y1 = $para1.offset().top; 
      //Get the current computed outer height (including padding, border, and optionally margin) 
-    let h1 = $div1.outerHeight(true); 
+    let h1 = $para1.outerHeight(true); 
     //to get the complete distance of the top of the player car with respect to the bottom of the container
      let b1 = y1 + h1;
 
     //do the same for left with respect to the left of the container
-    let x1 = $div1.offset().left; 
-    let w1 = $div1.outerWidth(true); //Get the outerwidth of the div including padding and margin
+    let x1 = $para1.offset().left; 
+    let w1 = $para1.outerWidth(true); //Get the outerwidth of the div including padding and margin
     //to get the complete distance of the left of the player car with respect to the left of the container
     let r1 = x1 + w1;
 
     //same thing for 2nd parameter
-    let y2 = $div2.offset().top;
-    let h2 = $div2.outerHeight(true);
-    let x2 = $div2.offset().left;
-    let w2 = $div2.outerWidth(true);
+    let y2 = $para2.offset().top;
+    let h2 = $para2.outerHeight(true);
+    let x2 = $para2.offset().left;
+    let w2 = $para2.outerWidth(true);
     let b2 = y2 + h2;
     let r2 = x2 + w2;
 
     //if displacement of player car(b1) < displacement of opp car (y2) relative to bottom of container, this means the opp car is always above player car, this will return false which means no collision. same thing for the left and right and bottom
-    if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) {
+    if (y1 > b2 ||  b1 < y2|| x1 > r2|| r1 < x2) {
         return false;
     }
 
