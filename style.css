@@ -14,7 +14,7 @@ p{
     outline-color:white;
     outline-style: dotted;
     position: relative;
-    height: 80vh;
+    height: 75vh;
     width: 15%;
     margin: 0 auto;
     margin-top: 30px;
@@ -23,7 +23,8 @@ p{
 }
 /* css for the joke and punchline */
 #joke, #punchline{
-    color:white;
+    font-size: 25px;
+    color:rgb(243, 21, 21);
 }
 
 /* css for the rules */
