@@ -14,7 +14,7 @@ p{
     outline-color:white;
     outline-style: dotted;
     position: relative;
-    height: 70vh;
+    height: 80vh;
     width: 15%;
     margin: 0 auto;
     margin-top: 30px;
@@ -51,7 +51,7 @@ p{
 .car{
     position: absolute;
     height: 60px;
-    width: 35px;
+    width: 30px;
     border-radius: 5px;
 }
 #car{
