@@ -55,6 +55,7 @@ $(() => {
 
 
     //move player car
+    
     //requestAnimation to call function left over a period of time
     //keydown is the action of pressing button down
     $(document).on('keydown', function (e) {    //keycode for keydown=40
