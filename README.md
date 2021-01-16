@@ -17,6 +17,7 @@ The game is avaialble to try on https://terrykoek.github.io/Racing-Car-Game/
 
 ## Difficulties Faced
 * Alot of time were spent on coding the collision function. I had the concept in my head but alot of trial and error is required.
+* There are some interface differences in my game when opened from VScode vs from Github.
 
 ## Game Instructions
 * Press directional keys on keyboard to control the red car to prevent it from colliding with the opposite white cars.
